@@ -62,6 +62,12 @@ public/          # Publicly accessible files (entry point, assets)
 
 ___
 
+## AI help chat logs
+
+[Perplexity](https://www.perplexity.ai/search/for-a-dynamic-website-made-usi-3mMlBPgmRZqcCzSKrIjCqg)
+
+___
+
 ## Contributing
 
 Pull requests are welcome for improvements or fixes!
