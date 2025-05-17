@@ -1,0 +1,9 @@
+@keyframes animate-list-tags {
+	0% {}
+
+	50% {
+		height: 70px;
+	}
+
+	100% {}
+}

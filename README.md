@@ -78,3 +78,5 @@ ___
 ## License
 
 This project is open-source and available under the [MIT license](LICENSE).
+
+This project uses the Ubuntu font, licensed under the [Ubuntu Font Licence Version 1.0](public/css/fonts/UFL.txt).

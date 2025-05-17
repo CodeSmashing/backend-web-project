@@ -1,0 +1,171 @@
+:root {
+	/*
+	--color-primary: #b9c1a5;
+	--color-secondary: #99a579;
+	--color-accent: #271f9a;
+	--color-text: #211717;
+	*/
+	--color-primary: #DFDEDC;
+	--color-secondary: #2A2E2D;
+	--color-accent: #2D3599;
+	--color-text: #2A2E2D;
+	--color-shadow: #B3CBF4;
+
+	/* Color palette background */
+	/* --default-background-hover: var(--color-shadow); */
+	--background-body: var(--color-primary);
+	--background-header: var(--color-secondary);
+	--background-main: transparent;
+	--background-footer: var(--color-secondary);
+	--background-nav: var(--color-secondary);
+	--background-aside: var(--color-secondary);
+	--background-article: var(--color-primary);
+	--background-section: var(--color-primary);
+	--background-form: var(--color-primary);
+	--background-minimized: var(--color-secondary);
+	--background-button: color-mix(in srgb,
+			var(--color-primary),
+			var(--color-accent) 60%);
+	--background-code: #000000;
+	--background-results: var(--color-secondary);
+	--background-horizontal: color-mix(in srgb,
+			var(--color-text),
+			var(--color-shadow) 60%);
+	--background-input: var(--color-primary);
+	--background-input-error: color-mix(in srgb, var(--color-primary) 92%, red);
+	--background-tag: var(--color-primary);
+	--border-hr: var(--text);
+
+	/* Color palette text */
+	--text: var(--color-text);
+	--text-opposite: var(--color-primary);
+	--text-button: var(--color-primary);
+	--text-anchor: var(--color-accent);
+
+	/* Color palette background hover*/
+	--background-button-hover: color-mix(in srgb,
+			var(--background-button),
+			black 20%);
+	--background-input-hover: color-mix(in srgb,
+			var(--background-input),
+			white 20%);
+
+	/* Color palette text hover*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+body {
+	background-color: var(--background-body);
+	color: var(--text);
+}
+
+header {
+	background-color: var(--background-header);
+	box-shadow: 0 2px 0 0 black;
+	color: var(--text-opposite);
+}
+
+main {
+	background-color: var(--background-main);
+}
+
+footer {
+	background-color: var(--background-footer);
+	color: var(--text-opposite);
+}
+
+form {
+	background-color: var(--background-form);
+}
+
+section#section-faq {
+	background-color: var(--background-section);
+}
+
+input,
+[type="text"],
+[type="email"],
+[type="search"],
+textarea,
+select {
+	background-color: var(--background-input);
+	box-shadow: 6px 6px 0 -3px black;
+	border-color: black;
+
+	&:hover {
+		background-color: var(--background-input-hover);
+		box-shadow: 4px 4px 0 -1px black;
+	}
+}
+
+input:focus,
+[type="text"]:focus,
+[type="email"]:focus,
+[type="search"]:focus,
+textarea:focus,
+select:focus {
+	border-color: var(--color-accent);
+	background-color: var(--background-input-hover);
+	box-shadow: 4px 4px 0 -1px var(--color-accent);
+}
+
+button,
+[type="submit"] {
+	background-color: var(--background-button);
+	color: var(--text-button);
+	box-shadow: 6px 6px 0 -3px black;
+
+	&:hover {
+		background-color: var(--background-button-hover);
+		box-shadow: 4px 4px 0 -1px black;
+	}
+}
+
+[id="list-tags"] {
+	background-color: var(--color-primary);
+	border-color: black;
+	box-shadow: 6px 6px 0 -3px black;
+}
+
+.tag {
+	background-color: var(--background-tag);
+	color: var(--text);
+	box-shadow: none;
+
+	&:hover {
+		background-color: var(--background-tag);
+		box-shadow: none;
+	}
+}
+
+a {
+	color: var(--text-anchor);
+
+	&:hover {
+		text-decoration-color: var(--text-anchor);
+	}
+}
+
+legend {
+	background-color: var(--background-form);
+	border-color: black;
+	box-shadow: 4px 4px 0 -1px black;
+}
+
+hr {
+	border-color: var(--border-hr);
+	box-shadow: 2px 2px 0 0 black;
+}
+
+fieldset {
+	border-color: black;
+	box-shadow: 4px 4px 0 -1px black;
+}

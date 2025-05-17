@@ -1,0 +1,139 @@
+@font-face {
+	font-family: "Ubuntu";
+	font-weight: 700;
+	font-style: normal;
+	src: url("./fonts/Ubuntu-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	font-weight: 500;
+	font-style: normal;
+	src: url("./fonts/Ubuntu-Medium.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	font-weight: 400;
+	font-style: normal;
+	src: url("./fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	font-weight: 300;
+	font-style: normal;
+	src: url("./fonts/Ubuntu-Light.ttf") format("truetype");
+}
+
+:root {
+	--font-md: 1rem;
+	--font-xl: 1.25rem;
+	--font-3xl: 1.75rem;
+	--font-5xl: 2.25rem;
+	--font-7xl: 3rem;
+	--font-8xl: 3.5rem;
+
+	--line-height-large: 2.5;
+	--line-height-base: 1.5;
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	line-height: var(--line-height-base);
+	letter-spacing: 0.0em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size-adjust: 0.6;
+	letter-spacing: 0.0em;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: var(--font-8xl);
+	line-height: var(--line-height-large);
+}
+
+h2 {
+	font-weight: 800;
+	font-size: var(--font-7xl);
+	line-height: calc(var(--line-height-large) - 0.5);
+}
+
+h3 {
+	font-weight: 500;
+	font-size: var(--font-5xl);
+	line-height: calc(var(--line-height-large) - 0.8);
+}
+
+h4 {
+	font-weight: 400;
+	font-size: var(--font-3xl);
+	line-height: calc(var(--line-height-large) - 0.9);
+	margin-block: 0.3rem;
+}
+
+h5 {
+	font-weight: 400;
+	font-size: var(--font-xl);
+	line-height: calc(var(--line-height-large) - 0.9);
+	margin-block: 0.3rem;
+}
+
+h6 {
+	font-weight: 300;
+	font-size: var(--font-md);
+	line-height: var(--line-height-base);
+	letter-spacing: 0.02em;
+	margin-block: 0.3rem;
+	text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.2);
+}
+
+p {
+	font-weight: 400;
+	font-size: var(--font-md);
+	line-height: var(--line-height-base);
+	margin-block: 0.75rem;
+}
+
+a {
+	font-weight: 400;
+	font-size: var(--font-md);
+	line-height: var(--line-height-base);
+	margin-block: 0.75rem;
+	font-weight: bold;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+input,
+input::placeholder {
+	margin-block: 0.75rem;
+	font-weight: 400;
+	font-size: var(--font-md);
+	line-height: var(--line-height-base);
+}
+
+button {
+	font-weight: 400;
+	font-size: var(--font-md);
+	line-height: var(--line-height-base);
+	margin-block: 0.75rem;
+	font-weight: bold;
+}
+
+.tag {
+	&:hover {
+		text-decoration: underline;
+	}
+}

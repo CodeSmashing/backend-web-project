@@ -1,11 +1,27 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HelpController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/help', [HelpController::class, 'index'])
+    ->name('help');
+
+Route::get('/stylesheet', function () {
+    return view('stylesheet');
+})->name('stylesheet');
+
+Route::get('/discussion-board', function () {
+    return view('discussion-board');
+})->name('discussion');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -17,4 +33,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
