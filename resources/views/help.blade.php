@@ -1,5 +1,9 @@
-<x-guest-layout>
-	<form id="help" role="search">
+<x-app-layout>
+	<x-slot name="header">
+		<h2>{{ __('FAQ') }}</h2>
+	</x-slot>
+
+	<form method="get" role="search">
 		<h6>Find articles and videos by entering terms in the search box.</h6>
 		<input type="submit" value="Search:">
 		<input type="search" id="search-by-term" name="search-by-term" placeholder="Search by term...">
@@ -40,7 +44,9 @@
 		@endforeach
 	</section>
 
+	<x-slot name="footer"></x-slot>
+
 	@push('scripts')
 		<script src="{{ asset('js/toggle-tags-manager.js') }}"></script>
 	@endpush
-</x-guest-layout>
+</x-app-layout>

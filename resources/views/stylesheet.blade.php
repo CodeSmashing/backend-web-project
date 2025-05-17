@@ -1,4 +1,8 @@
-<x-guest-layout>
+<x-app-layout>
+	<x-slot name="header">
+		<h2>{{ __('Stylesheet') }}</h2>
+	</x-slot>
+
 	<section>
 		<h1>Heading &lt;h1&gt;</h1>
 		<h2>Heading &lt;h2&gt;</h2>
@@ -23,4 +27,5 @@
 		<button>Button &lt;button&gt;</button>
 	</section>
 
-</x-guest-layout>
+	<x-slot name="footer"></x-slot>
+</x-app-layout>

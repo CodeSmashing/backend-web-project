@@ -1,4 +1,8 @@
-<x-guest-layout>
+<x-app-layout>
+	<x-slot name="header">
+		<h2>{{ __('Contact') }}</h2>
+	</x-slot>
+
 	<form id="contact">
 		<fieldset>
 			<h2>Contact form</h2>
@@ -21,4 +25,6 @@
 			<input type="submit" value="Submit form">
 		</fieldset>
 	</form>
-</x-guest-layout>
+
+	<x-slot name="footer"></x-slot>
+</x-app-layout>
