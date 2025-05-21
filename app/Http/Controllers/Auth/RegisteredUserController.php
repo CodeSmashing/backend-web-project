@@ -12,13 +12,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
-class RegisteredUserController extends Controller
-{
+class RegisteredUserController extends Controller {
     /**
      * Display the registration view.
      */
-    public function create(): View
-    {
+    public function create(): View {
         return view('auth.register');
     }
 
@@ -27,19 +25,34 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $request->validate([
+            'display_name' => ['nullable', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'avatar' => ['nullable', 'image', 'max:2048'],
+            'role' => ['nullable', 'integer', 'between:1,2'],
+            'birthday' => ['nullable', 'string', 'max:255'],
+            'about_me' => ['nullable', 'string', 'max:1080'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $data = $request->only(['name', 'email']);
+        $data['password'] = Hash::make($request->password);
+
+        if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
+            // Store the image in storage/app/public/avatars
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $data['avatar'] = $path;
+        }
+
+        foreach (['display_name', 'role', 'birthday', 'about_me'] as $field) {
+            if ($request->filled($field)) {
+                $data[$field] = $request->$field;
+            }
+        }
+
+        $user = User::create($data);
 
         event(new Registered($user));
 

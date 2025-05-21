@@ -23,3 +23,4 @@ yarn-error.log
 /.zed
 /.cspell
 cspell.json
+staged_changes.diff

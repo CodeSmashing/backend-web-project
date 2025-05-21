@@ -13,27 +13,31 @@
 
 	/* Color palette background */
 	/* --default-background-hover: var(--color-shadow); */
-	--background-body: var(--color-primary);
-	--background-header: var(--color-secondary);
+	--background-primary: var(--color-primary);
+	--background-secondary: var(--color-secondary);
 	--background-main: transparent;
-	--background-footer: var(--color-secondary);
-	--background-nav: var(--color-secondary);
-	--background-aside: var(--color-secondary);
-	--background-article: var(--color-primary);
-	--background-section: var(--color-primary);
-	--background-form: var(--color-primary);
-	--background-minimized: var(--color-secondary);
 	--background-button: color-mix(in srgb,
 			var(--color-primary),
 			var(--color-accent) 60%);
-	--background-code: #000000;
-	--background-results: var(--color-secondary);
 	--background-horizontal: color-mix(in srgb,
 			var(--color-text),
 			var(--color-shadow) 60%);
 	--background-input: var(--color-primary);
-	--background-input-error: color-mix(in srgb, var(--color-primary) 92%, red);
-	--background-tag: var(--color-primary);
+	--background-input-error: color-mix(in srgb,
+			var(--color-primary) 92%,
+			red);
+	--background-input-disabled: color-mix(in srgb,
+			var(--background-input),
+			gray);
+	--background-input-disabled-hover: color-mix(in srgb,
+			var(--background-input),
+			gray 70%);
+	--background-input-file: color-mix(in srgb,
+			var(--background-input),
+			gray 20%);
+	--background-input-file-hover: color-mix(in srgb,
+			var(--background-input),
+			gray 50%);
 	--border-hr: var(--text);
 
 	/* Color palette text */
@@ -63,12 +67,40 @@ h6 {
 }
 
 body {
-	background-color: var(--background-body);
+	background-color: var(--background-primary);
 	color: var(--text);
 }
 
+.dropdown {
+	.dropdown__menu {
+		background-color: var(--background-primary);
+		box-shadow: 3px 3px 0 0px black;
+	}
+
+	.dropdown__title {
+		box-shadow: 6px 6px 0 -3px black;
+
+		&:after {
+			border-color: black;
+			border-left-color: rgba(0, 0, 0, 0.25);
+			border-top-color: rgba(0, 0, 0, 0.25);
+		}
+	}
+
+	&:hover,
+	&:focus-within {
+		.dropdown__title {
+			&:after {
+				border-color: black;
+				border-right-color: rgba(0, 0, 0, 0.25);
+				border-bottom-color: rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+}
+
 header {
-	background-color: var(--background-header);
+	background-color: var(--background-secondary);
 	box-shadow: 0 2px 0 0 black;
 	color: var(--text-opposite);
 }
@@ -78,22 +110,23 @@ main {
 }
 
 footer {
-	background-color: var(--background-footer);
+	background-color: var(--background-secondary);
 	color: var(--text-opposite);
 }
 
 form {
-	background-color: var(--background-form);
+	background-color: var(--background-primary);
 }
 
 section#section-faq {
-	background-color: var(--background-section);
+	background-color: var(--background-primary);
 }
 
 input,
 [type="text"],
 [type="email"],
 [type="search"],
+[type="file"],
 textarea,
 select {
 	background-color: var(--background-input);
@@ -104,21 +137,26 @@ select {
 		background-color: var(--background-input-hover);
 		box-shadow: 4px 4px 0 -1px black;
 	}
-}
 
-input:focus,
-[type="text"]:focus,
-[type="email"]:focus,
-[type="search"]:focus,
-textarea:focus,
-select:focus {
-	border-color: var(--color-accent);
-	background-color: var(--background-input-hover);
-	box-shadow: 4px 4px 0 -1px var(--color-accent);
+	&:disabled {
+		background-color: var(--background-input-disabled);
+		color: var(--text);
+
+		&:hover {
+			background-color: var(--background-input-disabled-hover);
+		}
+	}
+
+	&:focus {
+		border-color: var(--color-accent);
+		background-color: var(--background-input-hover);
+		box-shadow: 4px 4px 0 -1px var(--color-accent);
+	}
 }
 
 button,
-[type="submit"] {
+[type="submit"],
+.button-style {
 	background-color: var(--background-button);
 	color: var(--text-button);
 	box-shadow: 6px 6px 0 -3px black;
@@ -127,21 +165,43 @@ button,
 		background-color: var(--background-button-hover);
 		box-shadow: 4px 4px 0 -1px black;
 	}
+
+	&:focus {
+		background-color: var(--background-button-hover);
+		box-shadow: 4px 4px 0 -1px black;
+	}
 }
 
-[id="list-tags"] {
+[type="file"] {
+	&::file-selector-button {
+		background-color: var(--background-input-file);
+	}
+
+	&::file-selector-button:hover {
+		background-color: var(--background-input-file-hover);
+	}
+}
+
+#settings-dropdown {
+	#content {
+		box-shadow: 4px 4px 0 -1px black;
+	}
+}
+
+[id="tag-list"] {
+	position: relative;
 	background-color: var(--color-primary);
 	border-color: black;
 	box-shadow: 6px 6px 0 -3px black;
 }
 
 .tag {
-	background-color: var(--background-tag);
+	background-color: var(--background-primary);
 	color: var(--text);
 	box-shadow: none;
 
 	&:hover {
-		background-color: var(--background-tag);
+		background-color: var(--background-primary);
 		box-shadow: none;
 	}
 }
@@ -155,7 +215,7 @@ a {
 }
 
 legend {
-	background-color: var(--background-form);
+	background-color: var(--background-primary);
 	border-color: black;
 	box-shadow: 4px 4px 0 -1px black;
 }
@@ -168,4 +228,9 @@ hr {
 fieldset {
 	border-color: black;
 	box-shadow: 4px 4px 0 -1px black;
+}
+
+.avatar {
+	background-color: var(--color-primary);
+	outline-color: white;
 }

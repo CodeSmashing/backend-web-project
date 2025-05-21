@@ -108,23 +108,27 @@ a {
 	font-weight: 400;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);
-	margin-block: 0.75rem;
+	padding-block: 0.75rem;
 	font-weight: bold;
 
+
+	&.current,
 	&:hover {
 		text-decoration: underline;
 	}
 }
 
 input,
-input::placeholder {
+input::placeholder,
+select {
 	margin-block: 0.75rem;
 	font-weight: 400;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);
 }
 
-button {
+button,
+.button-style {
 	font-weight: 400;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);
@@ -136,4 +140,10 @@ button {
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+.truncate-text {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }

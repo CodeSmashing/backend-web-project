@@ -4,17 +4,17 @@ function init() {
 	const form = document.querySelector("form[role='search']");
 	const searchByTerm = form.querySelector("#search-by-term");
 	const searchByTag = form.querySelector("#search-by-tag");
-	const listTags = form.querySelector("#list-tags");
+	const tagList = form.querySelector("#tag-list");
 	const handleInput = (event) => {
 		event.preventDefault();
 		const term = searchByTerm.value;
 		const tag = searchByTag.value;
 
 		for (const value of [term, tag]) {
-			if (value && !listTags.querySelector(`[value=${value}]`)) {
-				listTags.classList.remove("hidden");
+			if (value && !tagList.querySelector(`[value=${value}]`)) {
+				tagList.classList.remove("hidden");
 
-				const newTag = listTags.appendChild(document.createElement("div"));
+				const newTag = tagList.appendChild(document.createElement("div"));
 				newTag.setAttribute("class", "tag");
 				const newLabel = newTag.appendChild(document.createElement("label"));
 				newLabel.setAttribute("value", value);
@@ -33,29 +33,29 @@ function init() {
 		if (!tag) return;
 
 		if (target.className.includes("return")) {
-			listTags.removeChild(tag);
+			tagList.removeChild(tag);
 			checkIfEmpty();
 		} else if (target.tagName = "label") {
 		}
 
 	};
 	const checkIfOverflowing = () => {
-		let isOverflowing = listTags.clientHeight < listTags.scrollHeight - 1;
+		let isOverflowing = tagList.clientHeight < tagList.scrollHeight - 1;
 
 		if (isOverflowing) {
-			listTags.classList.add("overflowing");
+			tagList.classList.add("overflowing");
 		}
 	};
 	const checkIfEmpty = () => {
-		if (listTags.children.length === 0) {
-			listTags.classList.add("hidden");
+		if (tagList.children.length === 0) {
+			tagList.classList.add("hidden");
 		}
 	}
 
 	form.addEventListener("submit", handleInput);
-	listTags.addEventListener("click", handleTagClick);
-	listTags.addEventListener("animationend", () => {
-		listTags.classList.remove("overflowing");
+	tagList.addEventListener("click", handleTagClick);
+	tagList.addEventListener("animationend", () => {
+		tagList.classList.remove("overflowing");
 	});
 
 	checkIfOverflowing();

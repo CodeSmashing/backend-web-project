@@ -3,38 +3,36 @@
 		<h2>{{ __('Dashboard') }}</h2>
 	</x-slot>
 
-	<h1>Let's get started</h1>
-	<p>Laravel has an incredibly rich ecosystem. <br>We suggest starting
-		with the following.</p>
-	<ul>
-		<li>
-			<span>
-				Read the
-				<a href="https://laravel.com/docs" target="_blank">
-					<span>Documentation</span>
+	<section>
+		<h1>Let's get started</h1>
+		<p>Laravel has an incredibly rich ecosystem. <br>We suggest starting
+			with the following.</p>
+		<ul>
+			<li>
+				<span>
+					Read the
+					<a href="https://laravel.com/docs" target="_blank">
+						<span>Documentation</span>
+					</a>
+				</span>
+			</li>
+			<li>
+				<span>
+					Watch video tutorials at
+					<a href="https://laracasts.com" target="_blank">
+						<span>Laracasts</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="https://cloud.laravel.com" target="_blank">
+					Deploy now
 				</a>
-			</span>
-		</li>
-		<li>
-			<span>
-				Watch video tutorials at
-				<a href="https://laracasts.com" target="_blank">
-					<span>Laracasts</span>
-				</a>
-			</span>
-		</li>
-	</ul>
-	<ul>
-		<li>
-			<a href="https://cloud.laravel.com" target="_blank">
-				Deploy now
-			</a>
-		</li>
-	</ul>
-
-	@if (Route::has('login'))
-		<div class="h-14.5 hidden lg:block"></div>
-	@endif
+			</li>
+		</ul>
+	</section>
 
 	<x-slot name="footer"></x-slot>
 </x-app-layout>

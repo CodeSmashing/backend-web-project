@@ -10,7 +10,7 @@
 			<div>
 				<x-input-label for="email" :value="__('Email')" />
 				<x-text-input id="email" type="email" name="email" :value="old('email', $request->email)" required autofocus
-					autocomplete="username" />
+					autocomplete="email" />
 				<x-input-error :messages="$errors->get('email')" />
 			</div>
 

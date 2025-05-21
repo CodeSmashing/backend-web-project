@@ -5,6 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2025-05-21
+
+### Added
+
+- Added `avatar`, `role`, `birthday`, `display_name` and `about_me` fields to the `users` table and corresponding forms/controllers (`register`, `profile-update`, `RegisteredUserController`, `ProfileController`).
+- Added file upload functionality for user avatars in `RegisteredUserController` and `ProfileController`.
+- Created `Faq` model, migration, factory, and seeder to replace the static `FAQ` model.
+- Added `FaqSeeder` and `UserSeeder` for database seeding.
+- Added new CSS classes and styles for dropdown menus, buttons, forms, and avatars.
+- Added `toggle-alter-manager.js` for enabling/disabling form fields dynamically.
+- Added `queries.css` for responsive design.
+
+### Changed
+
+- Updated `register.blade.php` to include new fields (`role`, `display_name`).
+- Updated `profile.edit.blade.php` to allow users to update their profile information, including avatar and role.
+- Refactored `help.blade.php` to use the new `Faq` model and updated the tag list functionality.
+- Updated `navigation.blade.php` to include a dropdown menu for user settings with avatar display. [Stephanie Eckles](https://moderncss.dev/css-only-accessible-dropdown-navigation-menu/)
+- Renamed `toggle-tags-manager.js` to `toggle-tag-list-manager.js` for consistency.
+- Updated `welcome.blade.php` and `discussion-board.blade.php` to include sections and user display logic.
+- Corrected link definition for [2.0.0]
+
+### Removed
+
+- Deleted the static `FAQ` model and replaced it with the dynamic `Faq` model.
+- Removed unused components: `dropdown.blade.php` and `dropdown-link.blade.php`.
+
+### Fixed
+
+- Fixed various CSS inconsistencies, including hover states, button styles, and dropdown menus.
+- Fixed tag list overflow handling in the FAQ search form.
+
 ## [2.0.0] - 2025-05-17
 
 ### Added
@@ -73,7 +105,8 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
-[2.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v1.0.0
+[2.1.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.1.0
+[2.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.0.0
 [1.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v1.0.0
 [0.0.2]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v0.0.2
 [0.0.1]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v0.0.1

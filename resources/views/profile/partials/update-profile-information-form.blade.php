@@ -13,21 +13,214 @@
 		@csrf
 	</form>
 
-	<form method="post" role="profile-update" action="{{ route('profile.update') }}">
+	<form
+		method="post"
+		role="profile-update"
+		action="{{ route('profile.update') }}"
+		enctype="multipart/form-data">
 		@csrf
 		@method('patch')
 
+		<!-- Profile avatar -->
 		<div class="grid-item-1">
-			<x-input-label for="name" :value="__('Name')" />
-			<x-text-input id="name" name="name" type="text" :value="old('name', $user->name)" required autofocus
-				autocomplete="name" />
-			<x-input-error :messages="$errors->get('name')" />
+			<x-input-label
+				class="grid-item-1"
+				for="avatar"
+				:value="__('Avatar')" />
+			<x-text-input
+				class="grid-item-2"
+				id="avatar"
+				name="avatar"
+				type="file"
+				:value="old('avatar', $user->avatar)"
+				disabled
+				autofocus
+				autocomplete="avatar" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('avatar')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style" for="toggle-field-avatar"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-avatar"
+				id="toggle-field-avatar">
 		</div>
 
+		<!-- Display name -->
 		<div class="grid-item-2">
-			<x-input-label for="email" :value="__('Email')" />
-			<x-text-input id="email" name="email" type="email" :value="old('email', $user->email)" required autocomplete="username" />
-			<x-input-error :messages="$errors->get('email')" />
+			<x-input-label
+				class="grid-item-1"
+				for="display_name"
+				:value="__('Display name')" />
+			<x-text-input
+				class="grid-item-2"
+				id="display_name"
+				name="display_name"
+				type="text"
+				:value="old('display_name', $user->display_name)" disabled
+				autofocus
+				autocomplete="username" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('display_name')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style" for="toggle-field-display_name"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-display_name"
+				id="toggle-field-display_name">
+		</div>
+
+		<!-- Name -->
+		<div class="grid-item-3">
+			<x-input-label
+				class="grid-item-1"
+				for="name"
+				:value="__('Name')" />
+			<x-text-input
+				class="grid-item-2"
+				id="name"
+				name="name"
+				type="text"
+				:value="old('name', $user->name)"
+				autofocus
+				disabled
+				autocomplete="name" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('name')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style"
+				for="toggle-field-name"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-name"
+				id="toggle-field-name">
+		</div>
+
+		<!-- About -->
+		<div class="grid-item-4">
+			<x-input-label
+				class="grid-item-1"
+				for="about_me"
+				:value="__('About me')" />
+			<x-text-input
+				class="grid-item-2"
+				id="about_me"
+				name="about_me"
+				type="text"
+				:value="old('about_me', $user->about_me)"
+				autofocus
+				disabled
+				autocomplete="about_me" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('about_me')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style"
+				for="toggle-field-about_me"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-about_me"
+				id="toggle-field-about_me">
+		</div>
+
+		<!-- Birthday -->
+		<div class="grid-item-5">
+			<x-input-label
+				class="grid-item-1"
+				for="birthday"
+				:value="__('Birthday')" />
+			<x-text-input
+				class="grid-item-2"
+				id="birthday"
+				name="birthday"
+				type="text"
+				:value="old('birthday', $user->birthday)"
+				autofocus
+				disabled
+				autocomplete="birthday" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('birthday')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style"
+				for="toggle-field-birthday"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-birthday"
+				id="toggle-field-birthday">
+		</div>
+
+		<!-- Role -->
+		<div class="grid-item-6">
+			<x-input-label
+				class="grid-item-1"
+				for="role"
+				:value="__('Role')" />
+			<select
+				class="grid-item-2"
+				id="role"
+				name="role"
+				disabled>
+				<option value="2" selected>-- Select a role --</option>
+				<option value="1">Administrator</option>
+				<option value="2">Regular user</option>
+			</select>
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('role')" />
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style"
+				for="toggle-field-role"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-role"
+				id="toggle-field-role">
+		</div>
+
+		<!-- Email -->
+		<div class="grid-item-7">
+			<x-input-label
+				class="grid-item-1"
+				for="email"
+				:value="__('Email')" />
+			<x-text-input
+				class="grid-item-2"
+				id="email"
+				name="email"
+				type="email"
+				:value="old('email', $user->email)"
+				disabled
+				autocomplete="email" />
+			<x-input-error
+				class="grid-item-2"
+				:messages="$errors->get('email')" />
 
 			@if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
 				<div>
@@ -46,9 +239,21 @@
 					@endif
 				</div>
 			@endif
+
+			<!-- Alter -->
+			<x-input-label
+				class="grid-item-3 alter-field button-style"
+				for="toggle-field-email"
+				:value="__('Alter')" />
+			<input
+				class="visually-hidden"
+				type="checkbox"
+				name="toggle-field-email"
+				id="toggle-field-email">
 		</div>
 
-		<div class="grid-item-3">
+		<!-- Submit -->
+		<div class="grid-item-8">
 			<x-primary-button>{{ __('Save') }}</x-primary-button>
 
 			@if (session('status') === 'profile-updated')
@@ -61,3 +266,7 @@
 		</div>
 	</form>
 </section>
+
+@push('scripts')
+	<script type="module" src="{{ asset('js/toggle-alter-manager.js') }}"></script>
+@endpush
