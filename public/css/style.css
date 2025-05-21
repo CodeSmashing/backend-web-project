@@ -93,15 +93,16 @@ nav {
 			margin: 0 0.5rem;
 			display: flex;
 			justify-content: center;
+			margin-block: 0.75rem;
 
 			a,
-			.dropdown__title {
+			.dropdown-title {
 				display: inline-block;
 			}
 
-			>a,
-			.dropdown__title {
-				padding: 1rem 0.5rem;
+			>a {
+				padding-block: var(--padding-small);
+				padding-inline: var(--padding-small);
 			}
 		}
 	}
@@ -110,12 +111,14 @@ nav {
 .dropdown {
 	position: relative;
 	justify-self: flex-end;
+	width: fit-content;
+	margin-block: 0.75rem;
 
-	.dropdown__menu {
+	.dropdown-menu {
 		position: absolute;
 		padding-inline: var(--padding);
 		padding-block: var(--padding-small);
-		min-width: 15ch;
+		width: 100%;
 		top: 100%;
 		left: 50%;
 		transform: rotateX(-90deg) translateX(-50%);
@@ -123,6 +126,7 @@ nav {
 		opacity: 0.3;
 		visibility: hidden;
 		transition: 280ms all 120ms ease-out;
+		gap: 0;
 
 		a {
 			display: block;
@@ -137,25 +141,26 @@ nav {
 		}
 	}
 
-	.dropdown__title {
+	.dropdown-title {
 		display: inline-flex;
 		justify-content: flex-end;
 		align-items: center;
 		cursor: pointer;
 		user-select: none;
 		width: 100%;
-		height: 100%;
-		padding-block: 0;
+		padding-block: var(--padding-small);
 		padding-inline: var(--padding-small);
 		padding-right: 3rem;
-		margin: 0;
 		column-gap: var(--gap);
+		margin-block: 0;
 
 		&:after {
 			position: absolute;
 			content: "";
 			right: 0;
-			border-width: 0.4rem;
+			border-width: 0.3rem;
+			border-left-width: 0.4rem;
+			border-bottom-width: 0.4rem;
 			border-style: solid;
 			margin-right: 0.95em;
 			transform: translateY(0.3em);
@@ -166,18 +171,14 @@ nav {
 
 	&:hover,
 	&:focus-within {
-		.dropdown__menu {
+		.dropdown-menu {
 			opacity: 1;
 			transform: rotateX(0) translateX(-50%);
 			visibility: visible;
 		}
 
-		.dropdown__title {
-			&:after {
-				border-color: black;
-				border-right-color: rgba(0, 0, 0, 0.25);
-				border-bottom-color: rgba(0, 0, 0, 0.25);
-			}
+		.dropdown-title {
+			&:after {}
 		}
 	}
 }
@@ -294,10 +295,6 @@ label,
 	align-items: center;
 	gap: var(--gap-small);
 	height: fit-content;
-}
-
-[for*="toggle-alter-"] {
-	background-color: red;
 }
 
 [id="tag-list"] {
@@ -602,3 +599,11 @@ hr {
 		height: 50px;
 	}
 }
+
+/* .multi-line-truncate {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	// Number of lines to display
+	overflow: hidden;
+} */

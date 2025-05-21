@@ -25,6 +25,32 @@
 		<input type="text" value="Input <input>" placeholder="Input <input>"><br>
 
 		<button>Button &lt;button&gt;</button>
+
+		<x-dropdown :menuId="'settings-menu-stylesheet'">
+			<x-slot:menu-title>
+				<x-nav-link
+					:href="route('profile.edit')"
+					:data-target="'profile.edit'">
+					{{ __('Profile') }}
+				</x-nav-link>
+			</x-slot>
+
+			<x-slot:menu-items>
+				<!-- Authentication -->
+				<form
+					method="POST"
+					role="logout"
+					action="{{ route('logout') }}">
+					@csrf
+
+					<x-nav-link
+						:href="route('logout')"
+						onclick="event.preventDefault(); this.closest('form').submit();">
+						{{ __('Log out') }}
+					</x-nav-link>
+				</form>
+			</x-slot>
+		</x-dropdown>
 	</section>
 
 	<x-slot name="footer"></x-slot>

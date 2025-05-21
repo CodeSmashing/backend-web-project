@@ -1,7 +1,7 @@
-@props(['href', 'target' => ''])
+@props(['href', 'dataTarget' => ''])
 
 @php
-	$classes = $target && request()->routeIs($target) ? 'current' : '';
+	$classes = $dataTarget && request()->routeIs($dataTarget) ? 'current' : '';
 @endphp
 
 <a class="{{ $classes }}" href="{{ $href }}">{{ $slot }}</a>

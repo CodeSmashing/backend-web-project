@@ -72,12 +72,12 @@ body {
 }
 
 .dropdown {
-	.dropdown__menu {
+	.dropdown-menu {
 		background-color: var(--background-primary);
 		box-shadow: 3px 3px 0 0px black;
 	}
 
-	.dropdown__title {
+	.dropdown-title {
 		box-shadow: 6px 6px 0 -3px black;
 
 		&:after {
@@ -89,7 +89,7 @@ body {
 
 	&:hover,
 	&:focus-within {
-		.dropdown__title {
+		.dropdown-title {
 			&:after {
 				border-color: black;
 				border-right-color: rgba(0, 0, 0, 0.25);

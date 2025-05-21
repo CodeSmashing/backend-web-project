@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2025-05-22
+
+### Added
+
+- Introduced reusable Blade components for dropdown menus:
+  - `dropdown.blade.php`: Wrapper for dropdown functionality.
+  - `dropdown-title.blade.php`: Dropdown title with user avatar and display name.
+  - `dropdown-menu.blade.php`: Dropdown menu items.
+- Added dropdown menu example to `stylesheet.blade.php` for demonstration purposes.
+
+### Changed
+
+- Refactored `navigation.blade.php` to use new dropdown components for user settings.
+- Updated CSS class naming conventions:
+  - Replaced `dropdown__title` with `dropdown-title`.
+  - Replaced `dropdown__menu` with `dropdown-menu`.
+- Enhanced dropdown styling in `colors.css` and `style.css`:
+  - Improved padding, margins, and alignment for dropdown elements.
+  - Adjusted hover and focus states for better accessibility.
+- Updated navigation anchor `target` attribute to `data-target` when creating navigation anchors using `nav-link.blade.php`.
+
+### Removed
+
+- Removed inline dropdown logic from `navigation.blade.php` in favor of reusable components.
+- Removed unused /[for*="toggle-alter-"/] rule from `style.css`
+
 ## [2.1.0] - 2025-05-21
 
 ### Added
@@ -105,6 +131,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
+[2.2.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.2.0
 [2.1.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.1.0
 [2.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.0.0
 [1.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v1.0.0
