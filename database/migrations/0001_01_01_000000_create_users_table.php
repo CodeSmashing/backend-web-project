@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enum\UserRoleEnum;
 
 return new class extends Migration {
     /**
@@ -14,12 +15,10 @@ return new class extends Migration {
             $table->string('display_name')->default('Joe Shmoe');
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('avatars/default-avatar.png');
             $table->string('birthday')->nullable();
-            $table->string('about_me')->nullable();
+            $table->text('about_me')->nullable();
             $table->integer('role')->default(2);
-            // 1 = Administrator
-            // 2 = Regular user
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -41,6 +40,10 @@ return new class extends Migration {
             $table->integer('last_activity')->index();
         });
     }
+
+    protected $casts = [
+        'role' => UserRoleEnum::class,
+    ];
 
     /**
      * Reverse the migrations.

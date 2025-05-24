@@ -92,11 +92,7 @@
 						action="{{ route('logout') }}">
 						@csrf
 
-						<x-nav-link
-							:href="route('logout')"
-							onclick="event.preventDefault(); this.closest('form').submit();">
-							{{ __('Log out') }}
-						</x-nav-link>
+						<button class="anchor-style" type="submit">{{ __('Log out') }}</button>
 					</form>
 				</x-slot>
 			</x-dropdown>

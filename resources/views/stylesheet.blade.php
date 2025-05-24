@@ -20,6 +20,8 @@
 
 		<hr>
 
+		<hr class="small light">
+
 		<a href="#">Anchor &lt;a&gt;</a><br>
 
 		<input type="text" value="Input <input>" placeholder="Input <input>"><br>

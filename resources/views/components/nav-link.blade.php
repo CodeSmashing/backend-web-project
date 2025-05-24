@@ -1,4 +1,4 @@
-@props(['href', 'dataTarget' => ''])
+@props(['href' => '', 'dataTarget' => ''])
 
 @php
 	$classes = $dataTarget && request()->routeIs($dataTarget) ? 'current' : '';

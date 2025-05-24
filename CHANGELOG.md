@@ -5,6 +5,52 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2025-05-24
+
+### Added
+
+- Introduced `Thread` and `Post` models, migrations, factories, and seeders:
+  - `Thread` model with attributes: `user_id`, `title`, `description`, `is_locked`.
+  - `Post` model with attributes: `user_id`, `title`, `content`, `thread_id`, `post_id`.
+  - Migrations for `threads` and `posts` tables.
+  - Factories for generating sample `Thread` and `Post` data.
+  - Seeders for populating threads and posts with sample data.
+- Added `UserRoleEnum` for managing user roles in a type-safe manner.
+- Created reusable Blade components for posts and threads:
+  - `post-container.blade.php`: Wrapper for post items.
+  - `post-item.blade.php`: Displays individual posts with editable fields.
+  - `post-list.blade.php`: Recursive component for nested posts.
+  - `thread.blade.php`: Displays individual threads in full
+- Added `ThreadController` for handling thread-related logic:
+  - `show()`: Displays a thread and its posts.
+  - `getPostList()`: Retrieves posts for a thread.
+- Updated `.gitignore` to exclude `.markdownlint.json` and `public/images/arrow.svg`.
+- Added Bootstrap Icons license file (`licenses/BOOTSTRAP-ICONS-LICENSE.md`).
+- Added `References & Inspiration` section to README.
+
+### Changed
+
+- Updated `FaqFactory` and `FaqSeeder` to remove unnecessary spaces in `tagList` values.
+- Updated CSS to include styling for threads, posts and icons along with general adjustments:
+  - Removed styling references as these have been moved to the README.
+  - Added styles for `.anchor-style`, `.header-6-style`, `.paragraph-style` to allow for styling of an element as if it were a different element.
+  - Added styles for `.thread`, `.thread-expanded`, `.thread-page-link`, `.post`, `.post-container`, `.post-list`, `.icon`, etc...
+  - Updated styles for `hr` elements to allow a smaller version.
+- Updated `dropdown-title.blade.php` to provide a default display name if none is set.
+- Updated `discussion-board.blade.php` to create sections for every thread found in or eloquent model.
+- Changed `help.blade.php` to give the hidden tag fields for every FAQ section a value equal to the tag instead of the name.
+- Changed `navigation.blade.php` to use a submit button instead an anchor for logging out.
+- Updated `web.php` to include a route for individual discussion threads.
+- Updated `0001_01_01_000000_create_users_table.php`:
+  - Changed the `avatar` column to set a default avatar.
+  - Changed the `about_me` column from a `string` to a `text` column.
+- Refactored `toggle-tag-list-manager.js` to use an exported function for better modularity.
+
+### Removed
+
+- Deleted unused `responsive-nav-link.blade.php` component.
+- Removed unused protected `$password` from `FaqFactory.php`.
+
 ## [2.2.0] - 2025-05-22
 
 ### Added
@@ -131,6 +177,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
+[2.3.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.3.0
 [2.2.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.2.0
 [2.1.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.1.0
 [2.0.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.0.0

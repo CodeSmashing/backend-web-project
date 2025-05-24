@@ -32,7 +32,7 @@
 		@foreach ($FaqList as $Faq)
 			<fieldset>
 				@foreach (explode(',', $Faq['tagList']) as $tag)
-					<input type="hidden" name="{{ $tag }}" disabled>
+					<input type="hidden" value="{{ $tag }}" disabled>
 				@endforeach
 				<legend>
 					<strong>Q{{ $loop->iteration }}:</strong> {{ $Faq['question'] }}
@@ -48,6 +48,6 @@
 	<x-slot name="footer"></x-slot>
 
 	@push('scripts')
-		<script src="{{ asset('js/toggle-tag-list-manager.js') }}"></script>
+		<script type="module" src="{{ asset('js/toggle-tag-list-manager.js') }}"></script>
 	@endpush
 </x-app-layout>

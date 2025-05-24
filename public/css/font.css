@@ -51,7 +51,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.header-6-style {
 	font-size-adjust: 0.6;
 	letter-spacing: 0.0em;
 }
@@ -88,7 +89,8 @@ h5 {
 	margin-block: 0.3rem;
 }
 
-h6 {
+h6,
+.header-6-style {
 	font-weight: 300;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);
@@ -97,14 +99,16 @@ h6 {
 	text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.2);
 }
 
-p {
+p,
+.paragraph-style {
 	font-weight: 400;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);
 	margin-block: 0.75rem;
 }
 
-a {
+a,
+.anchor-style {
 	font-weight: 400;
 	font-size: var(--font-md);
 	line-height: var(--line-height-base);

@@ -9,11 +9,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class FaqFactory extends Factory {
     /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
-    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
@@ -22,7 +17,7 @@ class FaqFactory extends Factory {
         return [
             'question' => fake()->unique()->sentence(),
             'answer' => fake()->unique()->paragraph(),
-            'tagList' => implode(', ', fake()->words(3)),
+            'tagList' => implode(',', fake()->words(3)),
         ];
     }
 }

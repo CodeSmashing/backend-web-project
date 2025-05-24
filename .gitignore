@@ -24,3 +24,5 @@ yarn-error.log
 /.cspell
 cspell.json
 staged_changes.diff
+.markdownlint.json
+public/images/arrow.svg

@@ -75,8 +75,46 @@ Feel free to fork the repository and submit your changes.
 
 ___
 
-## License
+## References & Inspiration
+
+This project was inspired by or uses design ideas from the following sources:
+
+- [FAQ Page Design](https://kayako.com/blog/faq-page-design/)
+- [FAQ SOS KinderDorp](https://www.sos-kinderdorpen.be/nl/faq)
+- [Contact SOS KinderDorp](https://www.sos-kinderdorpen.be/nl/contact)
+- [Events SOS KinderDorp](https://www.sos-kinderdorpen.be/nl/events)
+- [CSS cheat-sheet](https://uniformcss.com/cheatsheet/font-sizes/)
+- [Proverbs poster](https://www.pinterest.com/pin/100627372920223271/)
+- [Dropdown tag menu](https://www.pinterest.com/pin/48976714683519705/)
+- [Checklist menu](https://www.pinterest.com/pin/10344274113968806/)
+- [Form Design](https://www.pinterest.com/pin/469218854950540835/)
+- [Dropdown tag menu](https://www.pinterest.com/pin/72902087702132797/)
+- [Accessible Dropdown Menu](https://moderncss.dev/css-only-accessible-dropdown-navigation-menu/)
+- [Discussion page design](https://www.pinterest.com/pin/315814992609508510/)
+- [The Front Page of the Internet](https://www.reddit.com)
+
+**Potential future references:**
+
+- [Menu Icons](https://www.pinterest.com/pin/7740630605578941/)
+- [Notification modals](https://www.pinterest.com/pin/2955556002052703/)
+- [Web breakpoints](https://www.pinterest.com/pin/9570217952844458/)
+- [Retro Delorean poster](https://www.pinterest.com/pin/18366310975667439/)
+- [Old computer screen](https://www.pinterest.com/pin/16747829861254747/)
+- [Folder structure](https://www.pinterest.com/pin/2674081024930099/)
+- [Retro UI](https://www.pinterest.com/pin/26599454045213868/)
+- [Dashboard](https://www.pinterest.com/pin/293859944456625197/)
+- [Profile page](https://www.pinterest.com/pin/422986590023194671/)
+- [Order](https://www.pinterest.com/pin/39688040459699603/)
+- [Scrollable shadows](https://stackoverflow.com/questions/9333379/check-if-an-elements-content-is-overflowing)
+- [Example Navigation Menu](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/)
+
+___
+
+## Licenses
 
 This project is open-source and available under the [MIT license](LICENSE).
 
 This project uses the Ubuntu font, licensed under the [Ubuntu Font Licence Version 1.0](public/css/fonts/UFL.txt).
+
+Bootstrap Icons are © 2019–2025 The Bootstrap Authors and are released under the MIT License.
+See [Bootstrap Icons License](licenses/BOOTSTRAP-ICONS-LICENSE) for details.

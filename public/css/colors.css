@@ -39,6 +39,9 @@
 			var(--background-input),
 			gray 50%);
 	--border-hr: var(--text);
+	--border-hr-light: color-mix(in srgb,
+			var(--background-primary),
+			black 20%);
 
 	/* Color palette text */
 	--text: var(--color-text);
@@ -62,7 +65,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.header-6-style {
 	text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -95,6 +99,23 @@ body {
 				border-right-color: rgba(0, 0, 0, 0.25);
 				border-bottom-color: rgba(0, 0, 0, 0.25);
 			}
+		}
+	}
+}
+
+.thread-page-link {
+	&:after {
+		border-color: black;
+		border-left-color: rgba(0, 0, 0, 0.25);
+		border-bottom-color: rgba(0, 0, 0, 0.25);
+		outline: var(--background-primary) 2px solid;
+	}
+
+	&:hover,
+	&:focus-within {
+		&:after {
+			box-shadow: 2px -2px 0 2px var(--color-accent);
+			outline-offset: -1px;
 		}
 	}
 }
@@ -206,11 +227,54 @@ button,
 	}
 }
 
-a {
+a,
+.anchor-style {
 	color: var(--text-anchor);
 
 	&:hover {
 		text-decoration-color: var(--text-anchor);
+	}
+}
+
+.anchor-style {
+	background-color: inherit;
+	box-shadow: none;
+
+	&:hover {
+		background-color: inherit;
+		box-shadow: none;
+	}
+}
+
+.header-6-style {
+	&:disabled {
+		box-shadow: none;
+		background-color: inherit;
+
+		&:hover {
+			background-color: inherit;
+		}
+	}
+}
+
+.paragraph-style {
+	background-color: inherit;
+
+	&:hover {
+		background-color: inherit;
+	}
+
+	&:disabled {
+		box-shadow: none;
+		background-color: inherit;
+
+		&:hover {
+			background-color: inherit;
+		}
+
+		&:focus {
+			background-color: inherit;
+		}
 	}
 }
 
@@ -223,6 +287,10 @@ legend {
 hr {
 	border-color: var(--border-hr);
 	box-shadow: 2px 2px 0 0 black;
+
+	&.light {
+		border-color: var(--border-hr-light);
+	}
 }
 
 fieldset {
@@ -230,7 +298,29 @@ fieldset {
 	box-shadow: 4px 4px 0 -1px black;
 }
 
+.thread {
+	border-color: black;
+
+	.thread-header {
+		background-color: var(--background-secondary);
+		color: var(--text-opposite);
+	}
+
+	.thread-footer {
+		background-color: var(--background-secondary);
+		color: var(--text-opposite);
+	}
+}
+
+.post-container {
+	border-color: rgba(0, 0, 0, 0.5);
+}
+
 .avatar {
 	background-color: var(--color-primary);
 	outline-color: white;
+}
+
+.icon {
+	background-color: white;
 }
