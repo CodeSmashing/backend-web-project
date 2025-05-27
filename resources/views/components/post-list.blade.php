@@ -1,21 +1,9 @@
 @php
-	use App\Models\Post;
+	use App\Http\Controllers\PostController;
 @endphp
 
 <section class="post-list">
-	@isset($postList)
-		@foreach ($postList as $post)
-			<x-post-container>
-				<x-post-item :post="$post" />
-
-				@php
-					$subPostList = Post::where('post_id', $post->id)->get();
-				@endphp
-
-				@if (isset($subPostList) && !$subPostList->isEmpty())
-					<x-post-list :postList="$subPostList" />
-				@endif
-			</x-post-container>
-		@endforeach
-	@endisset
+	@foreach ($postList as $post)
+		<x-post :post="$post" />
+	@endforeach
 </section>

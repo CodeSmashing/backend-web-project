@@ -27,7 +27,6 @@ class PostFactory extends Factory {
 
         return [
             'user_id' => User::query()->inRandomOrder()->value('id'),
-            'title' => fake()->optional()->sentence(),
             'content' => fake()->text(),
             'thread_id' => Thread::query()->inRandomOrder()->value('id'),
             'post_id' => $postId,

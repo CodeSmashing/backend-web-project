@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Enums\UserRoleEnum;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules;
 
 class ProfileUpdateRequest extends FormRequest {
     /**
@@ -17,7 +19,11 @@ class ProfileUpdateRequest extends FormRequest {
             'display_name' => ['nullable', 'string', 'max:255'],
             'name' => ['nullable', 'string', 'max:255'],
             'avatar' => ['nullable', 'image', 'max:2048'],
-            'role' => ['nullable', 'numeric', 'between:1,2'],
+            'role' => [
+                'nullable',
+                'string',
+                Rule::enum(UserRoleEnum::class)
+            ],
             'birthday' => ['nullable', 'string', 'max:255'],
             'about_me' => ['nullable', 'string', 'max:1080'],
             'email' => [
@@ -28,6 +34,7 @@ class ProfileUpdateRequest extends FormRequest {
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'password' => ['nullable', 'confirmed', Rules\Password::defaults()]
         ];
     }
 }

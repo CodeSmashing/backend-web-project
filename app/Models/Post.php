@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -16,9 +15,24 @@ class Post extends Model {
      */
     protected $fillable = [
         'user_id',
-        'title',
         'content',
         'thread_id',
-        'post_id'
+        'post_id',
+        'destroyed'
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array {
+        return [
+            'destroyed' => 'boolean',
+        ];
+    }
+
+    protected $casts = [
+        'destroyed' => 'boolean',
     ];
 }

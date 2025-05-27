@@ -17,35 +17,35 @@ class ThreadSeeder extends Seeder {
         Thread::create([
             'user_id' => fake()->randomElement($userIds),
             'title' => 'Why Do Socks Disappear in the Dryer? A Deep Dive',
-            'description' => '',
+            'content' => '',
             'is_locked' => 'true'
         ]);
 
         Thread::create([
             'user_id' => fake()->randomElement($userIds),
             'title' => 'The Official Procrastinators’ Support Group (We’ll Meet Tomorrow)',
-            'description' => '',
+            'content' => '',
             'is_locked' => 'false'
         ]);
 
         Thread::create([
             'user_id' => fake()->randomElement($userIds),
             'title' => 'Are Leftovers Just Food With Trust Issues?',
-            'description' => '',
+            'content' => '',
             'is_locked' => 'false'
         ]);
 
         Thread::create([
             'user_id' => fake()->randomElement($userIds),
             'title' => 'My Cat Just Stared at the Wall for 2 Hours—Should I Be Worried?',
-            'description' => '',
+            'content' => '',
             'is_locked' => fake()->boolean()
         ]);
 
         Thread::create([
             'user_id' => fake()->randomElement($userIds),
             'title' => 'The Great Debate: Is Cereal a Soup?',
-            'description' => '',
+            'content' => '',
             'is_locked' => fake()->boolean()
         ]);
     }

@@ -22,16 +22,16 @@
 	--background-horizontal: color-mix(in srgb,
 			var(--color-text),
 			var(--color-shadow) 60%);
+	--background-disabled: color-mix(in srgb,
+			var(--background-secondary),
+			gray 90%);
+	--background-disabled-hover: color-mix(in srgb,
+			var(--background-secondary),
+			gray 70%);
 	--background-input: var(--color-primary);
 	--background-input-error: color-mix(in srgb,
 			var(--color-primary) 92%,
 			red);
-	--background-input-disabled: color-mix(in srgb,
-			var(--background-input),
-			gray);
-	--background-input-disabled-hover: color-mix(in srgb,
-			var(--background-input),
-			gray 70%);
 	--background-input-file: color-mix(in srgb,
 			var(--background-input),
 			gray 20%);
@@ -66,6 +66,7 @@ h3,
 h4,
 h5,
 h6,
+.header-3-style,
 .header-6-style {
 	text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
@@ -160,11 +161,11 @@ select {
 	}
 
 	&:disabled {
-		background-color: var(--background-input-disabled);
+		background-color: var(--background-disabled);
 		color: var(--text);
 
 		&:hover {
-			background-color: var(--background-input-disabled-hover);
+			background-color: var(--background-disabled-hover);
 		}
 	}
 
@@ -176,6 +177,7 @@ select {
 }
 
 button,
+[type="button"],
 [type="submit"],
 .button-style {
 	background-color: var(--background-button);
@@ -190,6 +192,15 @@ button,
 	&:focus {
 		background-color: var(--background-button-hover);
 		box-shadow: 4px 4px 0 -1px black;
+	}
+
+	&:disabled {
+		background-color: var(--background-disabled);
+		color: var(--text);
+
+		&:hover {
+			background-color: var(--background-disabled-hover);
+		}
 	}
 }
 
@@ -246,6 +257,7 @@ a,
 	}
 }
 
+.header-3-style,
 .header-6-style {
 	&:disabled {
 		box-shadow: none;
@@ -298,6 +310,7 @@ fieldset {
 	box-shadow: 4px 4px 0 -1px black;
 }
 
+form[role="edit-thread"],
 .thread {
 	border-color: black;
 
@@ -309,6 +322,15 @@ fieldset {
 	.thread-footer {
 		background-color: var(--background-secondary);
 		color: var(--text-opposite);
+	}
+}
+
+form[role="create-thread"] {
+	background-color: transparent;
+
+	input,
+	textarea {
+		box-shadow: 4px 4px 0 -1px black;
 	}
 }
 

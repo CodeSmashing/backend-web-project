@@ -39,6 +39,7 @@ h3,
 h4,
 h5,
 h6,
+.header-3-style,
 .header-6-style {
 	-webkit-transition: var(--transition-time);
 	transition: var(--transition-time);
@@ -217,7 +218,12 @@ select {
 	}
 }
 
+textarea.hidden {
+	display: none;
+}
+
 button,
+[type="button"],
 .button-style {
 	padding-inline: var(--padding);
 	padding-block: var(--padding-small);
@@ -225,6 +231,10 @@ button,
 	-webkit-transition: var(--transition-time);
 	transition: var(--transition-time);
 	border: none;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
 
 [type="file"] {
@@ -270,6 +280,7 @@ a,
 	margin: 0;
 }
 
+.header-3-style,
 .header-6-style {
 	border: none;
 	padding-block: var(--padding-small);
@@ -367,11 +378,15 @@ form {
 	padding: var(--padding);
 }
 
-form[role]:not([role="search"]) {
+form[role] {
 	min-width: fit-content;
 	width: 50%;
 
-	&:not([role="profile-update"])>[class*="grid-item-"] {
+	/* &:not([role="profile-update"])>[class*="grid-item-"] {
+		display: flex;
+		flex-direction: column;
+	} */
+	&>[class*="grid-item-"] {
 		display: flex;
 		flex-direction: column;
 	}
@@ -383,6 +398,7 @@ form[role="search"] {
 		auto 1fr auto auto;
 	grid-template-rows:
 		auto 50px 50px;
+	width: 100%;
 
 	&>* {
 		margin: 0;
@@ -424,6 +440,11 @@ form[role="search"] {
 		grid-column: 2 / 5;
 		grid-row: 3 / 4;
 		z-index: 3;
+		flex-direction: row;
+	}
+
+	&.hidden {
+		display: none;
 	}
 }
 
@@ -563,35 +584,8 @@ form[role="logout"] {
 	padding: 0;
 }
 
-fieldset {
-	display: flex;
-	flex-direction: column;
-	border: 2px solid;
-	border-radius: var(--border-radius);
-	padding: var(--padding);
-	padding-bottom: calc(var(--padding)*2);
-
-	textarea,
-	input:not([type="submit"]) {
-		margin-bottom: var(--margin);
-	}
-
-	[type="submit"] {
-		margin-top: var(--margin);
-	}
-}
-
-section {
-	padding: var(--padding);
-
-	&.centered {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-}
-
-.thread {
+.thread,
+form[role="edit-thread"] {
 	position: relative;
 	display: grid;
 	grid-template-columns:
@@ -599,10 +593,14 @@ section {
 	grid-template-rows:
 		auto auto auto;
 	row-gap: var(--gap-small);
-	margin-inline: var(--margin-large);
+	width: 100%;
 	margin-block: var(--margin);
-	padding: 0;
-	border-inline: 2px solid;
+	/* border: 0; */
+
+	&:is(.thread) {
+		padding: var(--padding);
+		/* border-inline: 2px solid; */
+	}
 
 	&>.grid-item-1 {
 		grid-column: 1 / 2;
@@ -658,7 +656,7 @@ section {
 
 	.thread-footer {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: row;
 		padding-inline: var(--padding-small);
 		padding-block: var(--padding-small);
 	}
@@ -685,23 +683,44 @@ section {
 		}
 	}
 
-	form {
-		width: fit-content;
-		height: fit-content;
-		padding: 0;
-		margin: 0;
-		background-color: transparent;
-	}
-
 	.action-menu {
-		display: flex;
 		gap: var(--gap-small);
 	}
 }
 
-.thread-expanded {
-	margin-inline: 0;
-	border: 0;
+form[role="create-thread"] {}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid;
+	border-radius: var(--border-radius);
+	padding: var(--padding);
+	padding-bottom: calc(var(--padding)*2);
+
+	textarea,
+	input:not([type="submit"]) {
+		margin-bottom: var(--margin);
+	}
+
+	[type="submit"] {
+		margin-top: var(--margin);
+	}
+}
+
+section {
+	padding: var(--padding);
+
+	&.centered {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.discussion-options-container {
+	display: grid;
+	justify-items: center;
 }
 
 .post-list {
@@ -719,13 +738,13 @@ section {
 	}
 }
 
-.post {
+.post-item {
 	position: relative;
 	display: grid;
 	grid-template-columns:
 		auto;
 	grid-template-rows:
-		auto auto auto auto;
+		auto auto;
 	padding: var(--padding-small);
 
 	&>.grid-item-1 {
@@ -735,15 +754,12 @@ section {
 
 	&>.grid-item-2 {
 		grid-column: 1 / 2;
-		grid-row: 3 / 4;
+		grid-row: 2 / 3;
 	}
 
-	&>.grid-item-3 {
-		grid-column: 1 / 2;
-		grid-row: 4 / 5;
-	}
-
-	form {
+	form[role="edit-post"],
+	form[role="delete-post"],
+	form[role="report-post"] {
 		width: fit-content;
 		height: fit-content;
 		min-width: 50%;
@@ -754,6 +770,10 @@ section {
 	.action-menu {
 		display: flex;
 		gap: var(--gap-small);
+
+		form {
+			min-width: 0;
+		}
 	}
 }
 

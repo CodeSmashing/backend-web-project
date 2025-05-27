@@ -1,3 +1,7 @@
+@php
+	use App\Models\Enums\UserRoleEnum;
+@endphp
+
 <section class="centered">
 	<header>
 		<h2>
@@ -184,9 +188,10 @@
 				id="role"
 				name="role"
 				disabled>
-				<option value="2" selected>-- Select a role --</option>
-				<option value="1">Administrator</option>
-				<option value="2">Regular user</option>
+				<option value="" selected>-- Select a role --</option>
+				@foreach (UserRoleEnum::cases() as $role)
+					<option value="{{ $role->value }}">{{ __(ucfirst($role->value)) }}</option>
+				@endforeach
 			</select>
 			<x-input-error
 				class="grid-item-2"

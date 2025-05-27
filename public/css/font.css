@@ -52,6 +52,7 @@ h3,
 h4,
 h5,
 h6,
+.header-3-style,
 .header-6-style {
 	font-size-adjust: 0.6;
 	letter-spacing: 0.0em;
@@ -69,7 +70,9 @@ h2 {
 	line-height: calc(var(--line-height-large) - 0.5);
 }
 
-h3 {
+h3,
+.header-3-style {
+	margin-block: 0;
 	font-weight: 500;
 	font-size: var(--font-5xl);
 	line-height: calc(var(--line-height-large) - 0.8);
@@ -114,7 +117,6 @@ a,
 	line-height: var(--line-height-base);
 	padding-block: 0.75rem;
 	font-weight: bold;
-
 
 	&.current,
 	&:hover {

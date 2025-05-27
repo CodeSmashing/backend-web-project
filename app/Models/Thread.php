@@ -17,7 +17,25 @@ class Thread extends Model {
     protected $fillable = [
         'user_id',
         'title',
-        'description',
+        'content',
+        'destroyed',
         'is_locked'
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array {
+        return [
+            'destroyed' => 'boolean',
+            'is_locked' => 'boolean',
+        ];
+    }
+
+    protected $casts = [
+        'destroyed' => 'boolean',
+        'is_locked' => 'boolean',
     ];
 }

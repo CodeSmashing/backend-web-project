@@ -13,8 +13,9 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->boolean('is_locked');
+            $table->text('content')->nullable();
+            $table->tinyInteger('is_locked')->default(false);
+            $table->tinyInteger('destroyed')->default(false);
             $table->timestamps();
         });
     }

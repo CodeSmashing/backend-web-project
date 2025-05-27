@@ -5,6 +5,87 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2025-05-27
+
+### Added
+
+- Added `PostController::getThreadPostList()` method to retrieve posts for a specific thread.
+- Added `destroyed` attribute to `threads` and `posts` tables with a default value of `false`.
+- Added `destroyed` and `is_locked` attribute casting to the `Thread` model.
+- Added `destroyed` attribute casting to the `Post` model.
+- Implemented `PostController` methods for managing posts:
+  - `store()`: Handles post creation and returns a rendered view of the created post.
+  - `update()`: Updates post content.
+  - `destroy()`: Marks a post as destroyed without deleting it.
+  - `delete()`: Permanently deletes a post.
+  - `report()`: Placeholder for reporting posts.
+- Implemented `ThreadController` methods for managing threads:
+  - `store()`: Handles thread creation.
+  - `update()`: Updates thread content.
+  - `destroy()`: Marks a thread as destroyed without deleting it.
+  - `delete()`: Permanently deletes a thread.
+  - `report()`: Placeholder for reporting threads.
+- Added `PostStoreRequest` and `PostUpdateRequest` for validating post-related requests.
+- Added `ThreadStoreRequest` and `ThreadUpdateRequest` for validating thread-related requests.
+- Added routes for thread and post related actions (`thread.store`, `thread.update`, `thread.destroy`, `thread.delete`, `thread.report`, `post.store`, `post.update`, `post.destroy`, `post.delete`, `post.report`) in `web.php`.
+- Added `discussion-options-manager.js` to dynamically handle creating new threads.
+- Added `post-action-manager.js` to dynamically edit posts.
+- Added `reply-action-manager.js` to dynamically create posts (replies).
+- Added `searchbox-manager.js` to (temporarily) dynamically handle the discussion page search box.
+- Added `thread-action-manager.js` to dynamically edit threads.
+
+### Changed
+
+- Updated `Post` and `Thread` models to include the `destroyed` attribute in the `$fillable` array.
+- Updated `Post` model to no longer include `title` in the `$fillable` array.
+- Updated `Thread` model to use `content` instead of `description` and to include `is_locked` in the `$fillable` array.
+- Updated `ThreadFactory` and `ThreadSeeder` to use `content` instead of `description`.
+- Updated `PostFactory` and `PostSeeder` to no longer use `title`.
+- Updated `0001_01_01_000000_create_users_table.php` to:
+  - Use `UserRoleEnum` for the `role` attribute.
+  - Store the `role` attribute as a string instead of an integer.
+  - No longer have a `$casts` array.
+- Updated `2025_05_22_090107_create_thread_table.php` to:
+  - Use the column `content` instead of `description`:
+  - Store the `is_locked` column as a `tinyInteger` instead of `boolean` and to default to `false`.
+  - Include `destroyed` as a column.
+- Updated `2025_05_22_090113_create_post_table.php` to:
+  - No longer include `title` as a column.
+  - Include `destroyed` as a column.
+- Changed `UserRoleEnum` to:
+  - Store cases as strings instead of integers.
+  - Use the namespace `APP\Models\Enums` instead of `APP\Enums`.
+  - Sit in the folder `Enums` instead of `enums`.
+- Updated the `rules` method of `ProfileUpdateRequest` to check if a given role matches a `UserRoleEnum` value.
+- Updated `User` to include the regular `$casts` array and to additionally cast `role` an a `UserRoleEnum` enum.
+- Updated `colors.css` to:
+  - Use the input it's disabled background color to instead be the general color for disabled elements.
+  - Include styling for `.header-3-style`.
+  - Include the disabled background color for buttons and the such.
+  - Include styling for `[role="edit-thread"]` and `[role="create-thread"]`.
+- Updated `font.css` to include styling for `.header-3-style`.
+- Updated `style.css` to:
+  - Include styling for `.header-3-style`.
+  - Set the cursor to `not-allowed` for disabled buttons and the like.
+  - Less specifically set the styling for `&>[class*="grid-item-"]`.
+- Updated `discussion-board.blade.php` to create threads which include a form for performing certain actions with said thread.
+- Updated `thread.blade.php` to create threads which include a form for performing certain actions with said threads.
+- Updated `register.blade.php` to make use of `UserRoleEnum` for the role dropdown.
+- Updated `update-profile-information-form.blade.php` to make use of `UserRoleEnum` for the role dropdown.
+- Refactored `post-item.blade.php` into `post.blade.php`.
+- Updated `post.blade.php` to:
+  - Include a form for performing certain actions with original post.
+  - Include a form for creating a reply post under the original post.
+
+### Removed
+
+- Removed `getPostList()` method from `ThreadController`.
+- Removed `post-container.blade.php` as it wasn't all that useful.
+
+### Fixed
+
+- Added a forgotten mention of the original cast for the user `role` column in `0001_01_01_000000_create_users_table.php`.
+
 ## [2.3.0] - 2025-05-24
 
 ### Added
@@ -44,6 +125,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 - Updated `0001_01_01_000000_create_users_table.php`:
   - Changed the `avatar` column to set a default avatar.
   - Changed the `about_me` column from a `string` to a `text` column.
+  - Added a cast for the `role` column to UserRoleEnum.
 - Refactored `toggle-tag-list-manager.js` to use an exported function for better modularity.
 
 ### Removed
@@ -177,6 +259,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
+[2.4.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.4.0
 [2.3.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.3.0
 [2.2.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.2.0
 [2.1.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.1.0

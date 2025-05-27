@@ -1,3 +1,7 @@
+@php
+	use App\Models\Enums\UserRoleEnum;
+@endphp
+
 <x-app-layout>
 	<section class="centered">
 		<form method="POST" role="register" action="{{ route('register') }}">
@@ -32,8 +36,9 @@
 				<x-input-label for="role" :value="__('Role')" />
 				<select id="role" name="role">
 					<option value="" selected>-- Select a role --</option>
-					<option value="1">Administrator</option>
-					<option value="2">Regular user</option>
+					@foreach (UserRoleEnum::cases() as $role)
+						<option value="{{ $role->value }}">{{ __(ucfirst($role->value)) }}</option>
+					@endforeach
 				</select>
 				<x-input-error :messages="$errors->get('role')" />
 			</div>

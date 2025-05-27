@@ -21,7 +21,7 @@ class ThreadFactory extends Factory {
         return [
             'user_id' => fake()->randomElement($userIds),
             'title' => fake()->sentence(),
-            'description' => fake()->paragraph(),
+            'content' => fake()->paragraph(),
             'is_locked' => fake()->boolean()
         ];
     }
