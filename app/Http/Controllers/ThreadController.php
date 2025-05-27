@@ -25,12 +25,12 @@ class ThreadController extends Controller {
     public function store(ThreadStoreRequest $request) {
         $user = $request->user();
 
-        $thread = Thread::create(array_merge(
+        Thread::create(array_merge(
             $request->validated(),
             ['user_id' => $user->id]
         ));
 
-        return view('discussion-board');
+        return redirect()->back();
     }
 
     /**

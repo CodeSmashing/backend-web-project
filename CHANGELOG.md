@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] - 2025-05-27
+
+### Added
+
+- Added `Functionality` and `Extras` sections to the `README.md` to document user roles, features, and technical implementation details.
+- Added `Thread::posts()` and `Thread::user()` relationships to the `Thread` model.
+- Added `Post::posts()`, `Post::user()`, `Post::thread()`, and `Post::post()` relationships to the `Post` model.
+- Added `User::threads()` and `User::posts()` relationships to the `User` model.
+- Added `UserSeeder` entry for a default admin account with the following credentials:
+  - **Email**: `admin@ehb.be`
+  - **Password**: `Password!321`
+- Added `User::role()` relationship to associate users with their roles.
+
+### Changed
+
+- Updated `ThreadController::store()` to redirect back to the previous page after creating a thread.
+- Updated `Post` and `Thread` models to include `destroyed` as a castable boolean attribute.
+- Updated `discussion-board.blade.php` to improve the formatting of the search form for better readability.
+- Updated `discussion-options-manager.js` to remove unused `response` variable and streamline error handling.
+
+### Fixed
+
+- Fixed missing relationships in the `Post` and `Thread` models to ensure proper Eloquent functionality.
+- Fixed inconsistent formatting in the `discussion-board.blade.php` search form.
+
+### Removed
+
+- Removed unused `response` variable from `discussion-options-manager.js`.
+
 ## [2.5.0] - 2025-05-27
 
 ### Added
@@ -281,6 +310,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
+[2.6.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.6.0
 [2.5.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.5.0
 [2.4.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.4.0
 [2.3.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.3.0

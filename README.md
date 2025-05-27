@@ -62,6 +62,69 @@ public/          # Publicly accessible files (entry point, assets)
 
 ___
 
+## Functionality
+
+- Guest users can:
+  - View threads
+  - View posts
+  - View FAQ
+  - View user names
+  - Make an account:
+    - Display name
+    - Real name
+    - Email
+    - Role
+    - Password
+  - Log into an account using their email and password
+- Users/admins can
+  - Make a thread:
+    - Title
+    - Content
+  - Make a post under a post:
+    - Content
+  - Edit their profile:
+    - Avatar
+    - Display name
+    - Real name
+    - About
+    - Birthday
+    - Role
+    - Email
+  - Update their password
+- Admins can
+  - Access the admin dashboard:
+    - Update profile info of any user
+
+## Extras
+
+- Stylesheet
+
+## Implementation Technical Requirements Assignment
+
+- Views
+  - 1 Layout -> App
+  - Used components for: posts, input, navigation and dropdown
+  - Redirecting users if they aren't logged in/ aren't an Admin
+- Routes
+  - Routes use controller methods -> to fetch posts, users ect...
+  - (some) Routes use middelware -> authentication
+- Controller
+  - Used controllers for (some) of the logic of all pages
+- Models
+  - Made all the necessary models for the entities required
+- Database
+  - Is equipped with seeders and factories to populate the database
+- Authentication
+  - Login/out
+  - Remeber methods
+  - Register
+  - Default Admin
+    - admin
+    - <admin@ehb.be>
+    - Password!321
+
+___
+
 ## AI help chat logs
 
 [Perplexity](https://www.perplexity.ai/search/for-a-dynamic-website-made-usi-3mMlBPgmRZqcCzSKrIjCqg)
@@ -107,6 +170,7 @@ This project was inspired by or uses design ideas from the following sources:
 - [Order](https://www.pinterest.com/pin/39688040459699603/)
 - [Scrollable shadows](https://stackoverflow.com/questions/9333379/check-if-an-elements-content-is-overflowing)
 - [Example Navigation Menu](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/)
+- [File input text hiding](https://stackoverflow.com/a/7691323)
 
 ___
 

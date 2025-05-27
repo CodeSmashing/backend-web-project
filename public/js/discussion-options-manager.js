@@ -43,7 +43,6 @@ export default function discussionOptionsManager() {
 
 		console.log(data);
 
-		let response;
 		try {
 			const fetchResponse = await fetch(createForm.action, {
 				method: 'POST',
@@ -57,8 +56,6 @@ export default function discussionOptionsManager() {
 			if (!fetchResponse.ok) {
 				throw new Error(`Failed to send ${data.get("_method") ?? createForm.method} request`);
 			}
-
-			response = await fetchResponse.json();
 		} catch (error) {
 			console.error(`Error requesting ${data.get("_method") ?? createForm.method}:`, error);
 			return;
