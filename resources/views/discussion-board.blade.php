@@ -21,8 +21,16 @@
 				method="get"
 				role="search">
 				<h6 class="grid-item-1">Find threads by entering terms in the search box or create a new one.</h6>
-				<input type="submit" class="grid-item-2" value="Search:">
-				<input type="search" class="grid-item-3" id="search-by-term" name="search-by-term" placeholder="Search by term...">
+				<input
+					type="submit"
+					class="grid-item-2"
+					value="Search:">
+				<input
+					type="search"
+					class="grid-item-3"
+					id="search-by-term"
+					name="search-by-term"
+					placeholder="Search by term...">
 
 				<select name="tag-list" class="grid-item-5" id="select-tag-list">
 					<option value="" selected>-- Select a thread --</option>

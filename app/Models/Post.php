@@ -35,4 +35,35 @@ class Post extends Model {
     protected $casts = [
         'destroyed' => 'boolean',
     ];
+
+    /**
+     * Get the posts for the post.
+     */
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
+     * Get the user that owns the post.
+     */
+    public function user() {
+
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the thread that contains the post.
+     */
+    public function thread() {
+
+        return $this->belongsTo(Thread::class);
+    }
+
+    /**
+     * Get the post that contains the post.
+     */
+    public function post() {
+
+        return $this->belongsTo(Post::class);
+    }
 }

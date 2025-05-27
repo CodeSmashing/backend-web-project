@@ -60,4 +60,25 @@ class User extends Authenticatable {
     public function isAdmin(): bool {
         return $this->role->value === UserRoleEnum::ADMIN->value;
     }
+
+    /**
+     * Get the role associated with the user.
+     */
+    public function role() {
+        return $this->hasOne(UserRoleEnum::class);
+    }
+
+    /**
+     * Get the threads for the user.
+     */
+    public function threads() {
+        return $this->hasMany(Thread::class);
+    }
+
+    /**
+     * Get the posts for the user.
+     */
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }

@@ -38,4 +38,19 @@ class Thread extends Model {
         'destroyed' => 'boolean',
         'is_locked' => 'boolean',
     ];
+
+    /**
+     * Get the posts for the thread.
+     */
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
+     * Get the user that owns the thread.
+     */
+    public function user() {
+
+        return $this->belongsTo(User::class);
+    }
 }
