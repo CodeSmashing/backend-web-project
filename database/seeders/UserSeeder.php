@@ -17,6 +17,7 @@ class UserSeeder extends Seeder {
             'email' => 'john.doe@gmail.com',
             'about_me' => 'I am no one. I am nothing.',
             'password' => '12345678',
+            'role' => 'regular',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder {
             'email' => 'jane.smith@outlook.com',
             'about_me' => 'I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS, I LOVE MUFFINS',
             'password' => '12345678',
+            'role' => 'admin',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);
@@ -67,6 +69,7 @@ class UserSeeder extends Seeder {
             'email' => 'barackobama@us.gov',
             'about_me' => 'It\'s me, former two-time US president Barack Obama.',
             'password' => '12345678',
+            'role' => 'admin',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);

@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project (tries) to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2025-05-27
+
+### Added
+
+- Added `ProfileController::updateFor()` method to allow administrators to update user profiles.
+- Added `UserController` with an `index()` method to display a list of all users.
+- Added `dashboard-actions-manager.js` to handle dynamic user profile editing on the dashboard.
+- Added `users.index` route and corresponding `users/index.blade.php` view to display all users.
+- Added `isAdmin()` method to the `User` model to check if a user has an admin role.
+- Added new CSS styles for user tables and forms in `colors.css` and `style.css`.
+
+### Changed
+
+- Updated `ProfileUpdateRequest` validation rules to use `sometimes` instead of `nullable` for better flexibility.
+- Updated `UserSeeder` to include the `role` attribute for certain seeded users.
+- Updated `dashboard.blade.php` to include a dynamic user management table for administrators.
+- Updated `navigation.blade.php` to include a link to the `users.index` route.
+
+### Fixed
+
+- Fixed disabled input styling in `colors.css` to use proper background colors for disabled states.
+
 ## [2.4.0] - 2025-05-27
 
 ### Added
@@ -259,6 +281,7 @@ and this project (tries) to adhere to [Semantic Versioning](https://semver.org/s
 
 - README with project details, setup instructions, usage, structure, contributing guidelines, and license information
 
+[2.5.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.5.0
 [2.4.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.4.0
 [2.3.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.3.0
 [2.2.0]: https://github.com/CodeSmashing/backend-web-project/releases/tag/v2.2.0

@@ -43,6 +43,13 @@
 				{{ __('Discussion') }}
 			</x-nav-link>
 		</li>
+		<li>
+			<x-nav-link
+				:href="route('users.index')"
+				:data-target="'users'">
+				{{ __('Users') }}
+			</x-nav-link>
+		</li>
 
 		@if (Route::has('login'))
 			@auth

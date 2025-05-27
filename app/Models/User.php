@@ -56,4 +56,8 @@ class User extends Authenticatable {
         'password' => 'hashed',
         'role' => UserRoleEnum::class,
     ];
+
+    public function isAdmin(): bool {
+        return $this->role->value === UserRoleEnum::ADMIN->value;
+    }
 }

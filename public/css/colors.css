@@ -278,14 +278,14 @@ a,
 
 	&:disabled {
 		box-shadow: none;
-		background-color: inherit;
+		background-color: var(--background-disabled);
 
 		&:hover {
-			background-color: inherit;
+			background-color: var(--background-disabled-hover);
 		}
 
 		&:focus {
-			background-color: inherit;
+			background-color: var(--background-disabled-hover);
 		}
 	}
 }
@@ -308,6 +308,23 @@ hr {
 fieldset {
 	border-color: black;
 	box-shadow: 4px 4px 0 -1px black;
+}
+
+table#master-table-header {
+	background-color: var(--background-primary);
+	box-shadow: 4px 4px 0 -1px black;
+}
+
+table.user-table {
+	td {
+		>[name].edit-input {
+			box-shadow: 0 4px 0 -1px black inset;
+
+			&:not(:disabled) {
+				background-color: color-mix(in srgb, transparent, gray 10%);
+			}
+		}
+	}
 }
 
 form[role="edit-thread"],

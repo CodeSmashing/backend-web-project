@@ -16,25 +16,25 @@ class ProfileUpdateRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'display_name' => ['nullable', 'string', 'max:255'],
-            'name' => ['nullable', 'string', 'max:255'],
-            'avatar' => ['nullable', 'image', 'max:2048'],
+            'display_name' => ['sometimes', 'string', 'max:255'],
+            'name' => ['sometimes', 'string', 'max:255'],
+            'avatar' => ['sometimes', 'image', 'max:2048'],
             'role' => [
-                'nullable',
+                'sometimes',
                 'string',
                 Rule::enum(UserRoleEnum::class)
             ],
-            'birthday' => ['nullable', 'string', 'max:255'],
-            'about_me' => ['nullable', 'string', 'max:1080'],
+            'birthday' => ['sometimes', 'string', 'max:255'],
+            'about_me' => ['sometimes', 'string', 'max:1080'],
             'email' => [
-                'nullable',
+                'sometimes',
                 'string',
                 'lowercase',
                 'email',
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
-            'password' => ['nullable', 'confirmed', Rules\Password::defaults()]
+            'password' => ['sometimes', 'confirmed', Rules\Password::defaults()]
         ];
     }
 }

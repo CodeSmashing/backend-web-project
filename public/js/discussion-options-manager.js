@@ -34,7 +34,7 @@ export default function discussionOptionsManager() {
 			save.setAttribute("disabled", true);
 			save.classList.add("hidden");
 		}
-	};
+	}
 
 	async function handleSubmit(event) {
 		event.preventDefault();

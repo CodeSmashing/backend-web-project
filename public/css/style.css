@@ -690,6 +690,10 @@ form[role="edit-thread"] {
 
 form[role="create-thread"] {}
 
+form[role="edit-user"].dashboard {
+	width: -moz-available;
+}
+
 fieldset {
 	display: flex;
 	flex-direction: column;
@@ -708,6 +712,44 @@ fieldset {
 	}
 }
 
+table {
+	table-layout: fixed;
+	width: -moz-available;
+
+	td {
+		width: fit-content;
+		height: fit-content;
+	}
+}
+
+table.user-table {
+	td {
+		>[name].edit-input {
+			word-wrap: break-word;
+
+			&:disabled {
+				padding: var(--padding-small);
+				cursor: not-allowed;
+			}
+		}
+
+		>.edit-toggle {
+			width: -moz-available;
+		}
+	}
+}
+
+table#master-table-header {
+	position: sticky;
+	top: 0;
+	height: 80px;
+	width: calc(100% - 40px);
+	margin-inline: auto;
+	z-index: 2;
+}
+
+/* table#mass-edit-table {} */
+
 section {
 	padding: var(--padding);
 
@@ -716,6 +758,10 @@ section {
 		flex-direction: column;
 		align-items: center;
 	}
+}
+
+section#dashboard-content {
+	position: relative;
 }
 
 .discussion-options-container {
